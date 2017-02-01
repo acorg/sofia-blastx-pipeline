@@ -44,8 +44,12 @@ function panel()
       --outputDir out \
       --withScoreBetterThan 50 \
       --scoreCutoff 50 \
-      --minMatchingReads 5 > summary-virus
+      --minMatchingReads 5 > summary-proteins
     echo "  noninteractive-alignment-panel.py stopped at `date`" >> $log
+
+    echo "  proteins-to-viruses.py started at `date`" >> $log
+    echo summary-proteins | proteins-to-viruses.py > summary-virus
+    echo "  proteins-to-viruses.py stopped at `date`" >> $log
 }
 
 
